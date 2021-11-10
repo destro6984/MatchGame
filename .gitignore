@@ -69,6 +69,8 @@ coverage.xml
 # pyenv
 .python-version
 
+
+.idea
 # celery
 celerybeat-schedule.*
 
@@ -76,7 +78,7 @@ celerybeat-schedule.*
 *.sage.py
 
 # Environments
-.env
+matchgame/settings/.env
 .venv
 env/
 venv/
