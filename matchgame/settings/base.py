@@ -13,7 +13,6 @@ import os
 import environ
 from pathlib import Path
 
-
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
@@ -64,7 +63,7 @@ ROOT_URLCONF = 'matchgame.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,6 +123,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES = [
+    'static'
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
