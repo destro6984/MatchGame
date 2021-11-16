@@ -124,7 +124,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES = [
+STATICFILES_DIRS = [
     'static'
 ]
 
@@ -134,3 +134,8 @@ STATICFILES = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
+# https://rahmanfadhil.com/django-login-with-email/
+# https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#writing-an-authentication-backend
+AUTHENTICATION_BACKENDS = ['users.backends.EmailBackend']
+LOGIN_REDIRECT_URL='home'
+

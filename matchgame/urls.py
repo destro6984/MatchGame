@@ -21,4 +21,5 @@ from game.views import HomeView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("game.urls")),
+    path('user/', include('users.urls')),
 ]

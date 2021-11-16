@@ -8,7 +8,7 @@ class User(AbstractUser):
     birth_date = models.DateField(null=True, blank=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
+    REQUIRED_FIELDS = ['username']
 
     def __str__(self):
         return f"name :{self.get_full_name()}, email: {self.email}"
