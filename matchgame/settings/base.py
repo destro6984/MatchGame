@@ -137,5 +137,7 @@ AUTH_USER_MODEL = 'users.User'
 # https://rahmanfadhil.com/django-login-with-email/
 # https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#writing-an-authentication-backend
 AUTHENTICATION_BACKENDS = ['users.backends.EmailBackend']
-LOGIN_REDIRECT_URL='home'
 
+LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'
