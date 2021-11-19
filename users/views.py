@@ -23,7 +23,7 @@ class LogoutView(auth_views.LogoutView):
 
 class SingUpView(CreateView):
     form_class = SignUpForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('login')
     template_name = 'users/registration_form.html'
 
 
