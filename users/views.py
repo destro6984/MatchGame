@@ -14,11 +14,13 @@ class LoginEmailView(auth_views.LoginView):
     form_class = LoginForm
     template_name = "users/login.html"
     redirect_field_name = 'home'
+    redirect_authenticated_user = True
     # success_message=f'Welcome'
 
 
 class LogoutView(auth_views.LogoutView):
     template_name = "users/logout.html"
+
 
 
 class SingUpView(CreateView):

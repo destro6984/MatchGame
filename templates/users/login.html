@@ -16,17 +16,10 @@
 
                 <form class="form" action="{% url 'login' %}" method="POST">
                     {% csrf_token %}
-                    <div class="form__group form__group">
-                        <!--            <label for="room_name">{{form.username}}</label>-->
-                        <!--            <input id="username" name="email" type="email" placeholder="find@your.game" />-->
-                        <!--            {{form.username}}-->
-                        {{ form.as_p }}
+
+                    <div class="form__group ">
+                        {{form.as_p}}
                     </div>
-                    <!--          <div class=" form__group" >-->
-                    <!--            <label for="password">Password</label>-->
-                    <!--            <input id="password" name="password" type="password"-->
-                    <!--              placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" />-->
-                    <!--          </div>-->
 
                     <button class="btn btn--main" type="submit">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
