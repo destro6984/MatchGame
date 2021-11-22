@@ -27,6 +27,11 @@ class Game(models.Model):
     stadium = models.ForeignKey(Stadium, on_delete=models.PROTECT)
     host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+
+    class Meta:
+        ordering = ['-updated', '-created']
 
     def __str__(self):
         return f"game: {self.stadium},{self.game_date}"

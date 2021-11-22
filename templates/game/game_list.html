@@ -3,16 +3,16 @@
     <div class="roomListRoom__header">
         <a href="{% url 'profile' game.host.id %}" class="roomListRoom__author">
             <div class="avatar avatar--small">
-                <img src="{{room.host.avatar.url}}"/>
+                <img src="{{game.host.avatar.url}}"/>
             </div>
             <span>@{{game.host.username}}</span>
         </a>
         <div class="roomListRoom__actions">
-            <span>{{game.created|timesince}}</span>
+            <span>Added: {{game.created|timesince}}</span>
         </div>
     </div>
     <div class="roomListRoom__content">
-        <a href="room.html">Game at {{game.stadium.address}}</a>
+        <a href="{%url 'game' pk=game.id%}">Game at {{game.stadium.address}}</a>
         <p>{{game.stadium.address}}</p>
         <p>{{game.max_players}}</p>
         <p>{{game.game_date}}</p>

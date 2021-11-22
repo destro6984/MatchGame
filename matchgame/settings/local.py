@@ -18,3 +18,5 @@ DATABASES = {
 #         'PORT': '5432',
 #     }
 # }
+MEDIA_URL = '/images/'
+MEDIA_ROOT = 'static/images'
