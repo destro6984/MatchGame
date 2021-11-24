@@ -1011,6 +1011,14 @@ a {
   color: var(--color-main);
 }
 
+.room__details {
+  background: var(--color-bg);
+  padding: 0.5rem;
+  border-radius: 0.7rem;
+  /*margin-top: 0.9rem;*/
+}
+
+
 .room__hosted p {
   text-transform: uppercase;
   color: var(--color-gray);
@@ -1027,6 +1035,7 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
+
 .room__author:hover {
   text-decoration: underline;
 }
@@ -1038,7 +1047,7 @@ a {
   display: inline-block;
   font-size: 1.4rem;
   border-radius: 1.5rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 .room__conversation {
@@ -1163,3 +1172,35 @@ a {
   color: var(--color-main);
   font-weight: 1.4rem;
 }
+
+.game__header{
+  margin-top: 1rem;
+  width: 95%;
+  background: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.game_header > p{
+    color: var(--color-dark-light);
+}
+.game__content{
+  margin-bottom: 2.4rem;
+  background-color: var(--color-bg);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.game__content h3{
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--color-main);
+    text-align: center;
+}
+.game__signup > form > input{
+    width: 100%;
+    padding:1rem;
+}
+

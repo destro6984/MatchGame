@@ -13,4 +13,4 @@ class AddGameForm(ModelForm):
 
     class Meta:
         model = Game
-        fields = ['stadium', 'price', 'max_players', 'game_date']
+        fields = ['stadium', 'price', 'max_players', 'game_date','status']

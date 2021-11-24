@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 from django.urls import reverse_lazy
@@ -41,11 +42,32 @@ class GameDetailView(DetailView):
     template_name = 'game/game.html'
 
 
-class GameUpdateView(LoginRequiredMixin, UpdateView):
-    model = Game
-    # form_class = EditUserForm
-    # template_name = 'users/update-user.html'
-    success_url = reverse_lazy('home')
+class GameUpdateView(LoginRequiredMixin, View):
+    form_class = AddGameForm
+
+    def get_object(self):
+        return get_object_or_404(Game, pk=self.kwargs['pk'])
+
+    def get_success_url(self):
+        return reverse_lazy('game', kwargs={'pk': self.object.pk})
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(instance=self.get_object())
+        return render(request, 'game/game_form.html', {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, instance=self.get_object())
+        if "joingame" in request.POST:
+            game = self.get_object()
+            game.participants.add(request.user)
+            return redirect('game', pk=kwargs['pk'])
+        elif "leftgame" in request.POST:
+            game = self.get_object()
+            game.participants.remove(request.user)
+            return redirect('game', pk=kwargs['pk'])
+        if form.is_valid():
+            form.save()
+            return redirect('game', pk=kwargs['pk'])
 
 
 class GameDeleteView(DeleteView):
