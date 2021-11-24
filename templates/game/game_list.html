@@ -1,7 +1,7 @@
 {%for game in games%}
 <div class="roomListRoom">
     <div class="roomListRoom__header">
-        <a href="{% url 'profile' pk=game.id%}"  class="roomListRoom__author">
+        <a href="{% url 'profile' pk=game.host.id%}"  class="roomListRoom__author">
             <div class="avatar avatar--small">
                 <img src="{{game.host.avatar.url}}"/>
             </div>
@@ -38,7 +38,7 @@
             </svg>
             Participants: {{game.participants.count}}/{{game.max_players}}
         </a>
-<!--        <p class="roomListRoom__topic">Python</p>-->
+        <p class="roomListRoom__topic">{{game.status}}</p>
     </div>
 </div>
 

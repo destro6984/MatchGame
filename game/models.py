@@ -22,7 +22,7 @@ class Game(models.Model):
     game_date = models.DateTimeField(blank=False)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     participants = models.ManyToManyField(
-        User, related_name='participants', blank=True)
+        User, related_name='games', blank=True)
     status = models.CharField(max_length=15, choices=Status.choices, default=Status.TO_BE_PLAYED)
     stadium = models.ForeignKey(Stadium, on_delete=models.PROTECT)
     host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)

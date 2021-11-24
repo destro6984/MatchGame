@@ -37,18 +37,19 @@
 
       <div class="roomList__header">
         <div>
-          <h2>Study Rooms Hosted by {{request.user.username}}</a>
+          <h2>Games played by {{request.user.username}}</a>
           </h2>
+          {{user_games}}
         </div>
       </div>
-      {% include 'users/feed_component.html' %}
+      {% include 'game/game_list.html' %}
 
 
     </div>
     <!-- Room List End -->
 
     <!-- Activities Start -->
-    {% include 'users/activity_component.html' %}
+    {% include 'actions/actions_list.html' %}
     <!-- Activities End -->
   </div>
 </main>
