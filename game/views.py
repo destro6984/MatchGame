@@ -8,6 +8,8 @@ from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import TemplateView, CreateView, DetailView, UpdateView, DeleteView
 
+from actions.models import Action
+from actions.utils import create_action
 from game.forms import AddGameForm
 from game.models import Game, Stadium
 
@@ -23,7 +25,8 @@ class HomeView(View):
         #     Q(description__icontains=q)
         # )
         games = Game.objects.all()
-        context = {'games': games}
+        actions = Action.objects.all()[:5]
+        context = {'games': games,'actions':actions}
         return render(request, self.template_name, context)
 
 
@@ -40,6 +43,11 @@ class GameCreate(CreateView):
 class GameDetailView(DetailView):
     model = Game
     template_name = 'game/game.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['actions'] = Action.objects.filter(target_id=self.object.id)
+        return context
 
 
 class GameUpdateView(LoginRequiredMixin, View):
@@ -60,10 +68,12 @@ class GameUpdateView(LoginRequiredMixin, View):
         if "joingame" in request.POST:
             game = self.get_object()
             game.participants.add(request.user)
+            create_action(request.user, "joined", game)
             return redirect('game', pk=kwargs['pk'])
         elif "leftgame" in request.POST:
             game = self.get_object()
             game.participants.remove(request.user)
+            create_action(request.user, "left", game)
             return redirect('game', pk=kwargs['pk'])
         if form.is_valid():
             form.save()

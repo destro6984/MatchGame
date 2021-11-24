@@ -1074,8 +1074,8 @@ a {
 .thread {
   border-left: 2px solid var(--color-dark);
   padding-left: 1rem;
-  margin: 2rem 0;
-  padding: 2rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
 }
 
 .thread__top {
@@ -1105,6 +1105,7 @@ a {
   font-size: 1.4rem;
   margin-top: 0.5rem;
 }
+
 
 .room__message {
   padding: 2rem;
@@ -1174,7 +1175,7 @@ a {
 }
 
 .game__header{
-  margin-top: 1rem;
+  margin-top: 0.2rem;
   width: 95%;
   background: var(--color-dark);
   display: flex;
@@ -1187,7 +1188,7 @@ a {
     color: var(--color-dark-light);
 }
 .game__content{
-  margin-bottom: 2.4rem;
+  margin-bottom: 1rem;
   background-color: var(--color-bg);
   border-radius: 1rem;
   padding: 1rem;
@@ -1204,3 +1205,13 @@ a {
     padding:1rem;
 }
 
+.game__activities{
+  margin-bottom: 0.3rem;
+  margin-top: 1rem;
+  background-color: var(--color-bg);
+  border-radius: 1rem;
+  padding: 1rem;
+  overflow: auto;
+  max-height: 32vh;
+
+}
